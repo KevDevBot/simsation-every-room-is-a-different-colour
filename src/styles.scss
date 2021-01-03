@@ -1,0 +1,26 @@
+@import "~@angular/material/theming";
+@include mat-core();
+$simsation-primary: mat-palette($mat-deep-purple, 400);
+$simsation-accent: mat-palette($mat-pink, A200, A100, A400);
+$simsation-warn: mat-palette($mat-amber);
+$simsation-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $simsation-primary,
+      accent: $simsation-accent,
+      warn: $simsation-warn,
+    ),
+  )
+);
+
+@include angular-material-theme($simsation-theme);
+
+html,
+body {
+  height: 100%;
+  background-color: #202020;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

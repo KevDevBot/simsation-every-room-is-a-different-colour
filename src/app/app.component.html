@@ -1,0 +1,45 @@
+<div class="app-wrapper">
+  <section id="app">
+    <section class="logo">
+      <img src="assets/logo.svg" />
+    </section>
+    <table
+      mat-table
+      [dataSource]="rooms"
+      id="room-table"
+      class="mat-elevation-z8"
+    >
+      <!-- Room Column -->
+      <ng-container matColumnDef="Room">
+        <th mat-header-cell *matHeaderCellDef>Room</th>
+        <td mat-cell *matCellDef="let element">{{ element.room }}</td>
+      </ng-container>
+
+      <!-- Color Sample -->
+      <ng-container matColumnDef="Sample">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <div
+            [style.backgroundColor]="element.colour.hex"
+            class="colour-sample"
+          ></div>
+        </td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="Colour">
+        <th mat-header-cell *matHeaderCellDef class="col-middle">Colour</th>
+        <td mat-cell class="col-middle" *matCellDef="let element">
+          {{ element.colour.name }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <button mat-mini-fab (click)="randomize()" color="primary">
+      <mat-icon>casino</mat-icon>
+    </button>
+  </section>
+</div>
